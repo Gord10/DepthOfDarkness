@@ -21,11 +21,24 @@ public class Enemy : FloatingCharacter
             desiredMovementDirection = player.transform.position - transform.position;
             desiredMovementDirection.Normalize();
 
-            spriteRenderer.flipX = desiredMovementDirection.x < 0;
+            transform.rotation = (desiredMovementDirection.x < 0) ? Quaternion.Euler(0, 180, 0) : Quaternion.identity; 
+            //spriteRenderer.flipX = desiredMovementDirection.x < 0;
         }
         else
         {
             desiredMovementDirection = Vector2.zero;
+        }
+    }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+
+        bool isDistantFromPlayerEnoughToRotate = Vector2.Distance(player.transform.position, transform.position) > 1f; //We don't want the enemy to rotate to player if he's too close to the player
+
+        if (isAlive && isDistantFromPlayerEnoughToRotate)
+        {
+            transform.rotation = (desiredMovementDirection.x < 0) ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
         }
     }
 

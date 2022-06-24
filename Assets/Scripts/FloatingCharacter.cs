@@ -19,7 +19,7 @@ public class FloatingCharacter : MonoBehaviour
         maxHealth = health;
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if(isAlive)
         {

@@ -293,5 +293,5 @@ MonoBehaviour:
   health: 10
   spriteRenderer: {fileID: 7300857129945128079}
   playerBulletPrefab: {fileID: 2646899159059603877, guid: e054758bb29f54041a1965d6737a1270, type: 3}
-  damagePerFiringBullet: 0.03
+  damagePerFiringBullet: 0.06
   bulletPoint: {fileID: 7300857130137789205}

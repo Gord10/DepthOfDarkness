@@ -12,7 +12,7 @@ public class Fish : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         transform.DOMoveX(transform.position.x + Random.Range(0.5f, 1.5f), speed).SetSpeedBased().
                                                            SetLoops(-1, LoopType.Yoyo).
-                                                           SetEase(Ease.Linear).
+                                                           //SetEase(Ease.Linear).
                                                            OnStepComplete(() => spriteRenderer.flipX = !spriteRenderer.flipX);
 
         //The deepest the fish, the darkest it is

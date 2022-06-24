@@ -19,7 +19,6 @@ public class Bullet : MonoBehaviour
     {
         transform.position = startPos;
         this.direction = direction;
-        print(this.direction.magnitude);
     }
 
     private void FixedUpdate()
@@ -31,7 +30,7 @@ public class Bullet : MonoBehaviour
 
     protected void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+        if(collision.gameObject.CompareTag("Enemy")) //Harm enemy
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             enemy.GetHarmed(damage);

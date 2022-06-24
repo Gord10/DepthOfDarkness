@@ -51,12 +51,12 @@ public class Player : FloatingCharacter
     private void FireBullet()
     {
         Vector3 targetPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Bullet bullet = Instantiate(playerBulletPrefab);
+        Bullet bullet = Instantiate(playerBulletPrefab, BulletManager.Instance.transform);
         Vector2 direction = targetPoint - bulletPoint.transform.position;
         direction.Normalize();
         bullet.GetFired(bulletPoint.position, direction);
 
-        GetHarmed(damagePerFiringBullet);
+        GetHarmed(damagePerFiringBullet); //Firing bullets harm the player
     }
 
 }
