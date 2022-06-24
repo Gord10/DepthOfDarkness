@@ -18,6 +18,8 @@ public class Enemy : FloatingCharacter
         //Follow the player
         desiredMovementDirection = player.transform.position - transform.position;
         desiredMovementDirection.Normalize();
+
+        spriteRenderer.flipX = desiredMovementDirection.x < 0;
     }
 
 }

@@ -24,7 +24,6 @@ public class FloatingCharacter : MonoBehaviour
         if(isAlive)
         {
             rigidbody.velocity = desiredMovementDirection * movementSpeed; //Character can move to desired movement only if they are alive
-            spriteRenderer.flipX = desiredMovementDirection.x < 0;
         }
         
         rigidbody.velocity += GameManager.Instance.gravity * Vector2.down; //Apply gravity in water

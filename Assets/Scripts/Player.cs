@@ -18,7 +18,7 @@ public class Player : FloatingCharacter
         desiredMovementDirection.y = Input.GetAxis("Vertical");
         desiredMovementDirection = Vector2.ClampMagnitude(desiredMovementDirection, 1f);
 
-        if(desiredMovementDirection.x != 0)
+        if(Input.GetAxisRaw("Horizontal") != 0)
         {
             spriteRenderer.flipX = desiredMovementDirection.x < 0;
         }
