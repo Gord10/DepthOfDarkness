@@ -14,5 +14,10 @@ public class Fish : MonoBehaviour
                                                            SetLoops(-1, LoopType.Yoyo).
                                                            SetEase(Ease.Linear).
                                                            OnStepComplete(() => spriteRenderer.flipX = !spriteRenderer.flipX);
+
+        //The deepest the fish, the darkest it is
+        float t = Mathf.InverseLerp(0, GameManager.Instance.deepestPointY, transform.position.y);
+        Color color = Color.Lerp(Color.white, Color.black, t);
+        spriteRenderer.color = color; 
     }
 }

@@ -5,4 +5,5 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public float gravity = 2f;
+    public float deepestPointY = 13f;
 }
