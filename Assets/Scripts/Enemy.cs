@@ -22,4 +22,11 @@ public class Enemy : FloatingCharacter
         spriteRenderer.flipX = desiredMovementDirection.x < 0;
     }
 
+    public override void Die()
+    {
+        base.Die();
+        rigidbody.constraints = RigidbodyConstraints2D.None;
+        gameObject.layer = LayerMask.NameToLayer("EnemyDead");
+    }
+
 }
