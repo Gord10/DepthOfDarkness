@@ -52,7 +52,7 @@ public class Player : FloatingCharacter
     {
         Vector3 targetPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Bullet bullet = Instantiate(playerBulletPrefab);
-        Vector3 direction = targetPoint - bulletPoint.transform.position;
+        Vector2 direction = targetPoint - bulletPoint.transform.position;
         direction.Normalize();
         bullet.GetFired(bulletPoint.position, direction);
 

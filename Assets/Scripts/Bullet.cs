@@ -19,11 +19,13 @@ public class Bullet : MonoBehaviour
     {
         transform.position = startPos;
         this.direction = direction;
+        print(this.direction.magnitude);
     }
 
     private void FixedUpdate()
     {
         rigidbody.velocity = direction * speed;
+        //print(rigidbody.velocity.magnitude);
         rigidbody.velocity += GameManager.Instance.gravity * Vector2.down;
     }
 

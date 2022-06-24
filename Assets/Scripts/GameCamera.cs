@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class GameCamera : MonoBehaviour
 {
     public Color brightestColor = Color.blue;
     public Color darkestColor = Color.black;
-
 
     private Player player;
     private Camera camera;

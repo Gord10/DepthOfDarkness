@@ -15,13 +15,17 @@ public class Enemy : FloatingCharacter
 
     private void Update()
     {
-        if(isAlive)
+        if(isAlive && spriteRenderer.isVisible)
         {
             //Follow the player
             desiredMovementDirection = player.transform.position - transform.position;
             desiredMovementDirection.Normalize();
 
             spriteRenderer.flipX = desiredMovementDirection.x < 0;
+        }
+        else
+        {
+            desiredMovementDirection = Vector2.zero;
         }
     }
 
