@@ -15,11 +15,14 @@ public class Enemy : FloatingCharacter
 
     private void Update()
     {
-        //Follow the player
-        desiredMovementDirection = player.transform.position - transform.position;
-        desiredMovementDirection.Normalize();
+        if(isAlive)
+        {
+            //Follow the player
+            desiredMovementDirection = player.transform.position - transform.position;
+            desiredMovementDirection.Normalize();
 
-        spriteRenderer.flipX = desiredMovementDirection.x < 0;
+            spriteRenderer.flipX = desiredMovementDirection.x < 0;
+        }
     }
 
     public override void Die()
