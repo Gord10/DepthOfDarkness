@@ -8,12 +8,14 @@ public class GameUi : Singleton<GameUi>
     public Image healthBar;
     public GameObject pearlInfoText;
     public Image pearlImage;
+    public GameObject gameOverText;
 
     protected override void Awake()
     {
         base.Awake();
         pearlInfoText.SetActive(false);
         pearlImage.gameObject.SetActive(false);
+        gameOverText.SetActive(false);
     }
 
     public void SetHealthBarRatio(float ratio)
@@ -25,5 +27,11 @@ public class GameUi : Singleton<GameUi>
     {
         pearlInfoText.SetActive(true);
         pearlImage.gameObject.SetActive(true);
+    }
+
+    public void OnGameOver()
+    {
+        healthBar.transform.parent.gameObject.SetActive(false);
+        gameOverText.SetActive(true);
     }
 }

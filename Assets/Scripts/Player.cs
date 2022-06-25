@@ -65,6 +65,12 @@ public class Player : FloatingCharacter
         GameUi.Instance.SetHealthBarRatio(health / maxHealth);
     }
 
+    public override void Die()
+    {
+        base.Die();
+        GameManager.Instance.OnPlayerDeath();
+    }
+
     private void FireBullet()
     {
         Vector3 targetPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);

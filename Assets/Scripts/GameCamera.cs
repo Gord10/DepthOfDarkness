@@ -26,6 +26,10 @@ public class GameCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.Instance.IsGameOver())
+        {
+            return;
+        }
         //Follow the player in Y axis
         Vector3 position = transform.position;
         position.y = player.transform.position.y;

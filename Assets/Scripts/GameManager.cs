@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -8,6 +9,8 @@ public class GameManager : Singleton<GameManager>
     public float deepestPointY = 13f;
 
     private bool isPearlFound = false;
+    private bool isGameOver = false;
+    private float timeWhenGameWasOver = 0; //Uses Time.timeSinceLevelLoad;
 
     public void OnFindingPearl()
     {
@@ -23,6 +26,18 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    public void OnPlayerDeath()
+    {
+        isGameOver = true;
+        GameUi.Instance.OnGameOver();
+        timeWhenGameWasOver = Time.timeSinceLevelLoad;
+    }
+
+    public bool IsGameOver()
+    {
+        return isGameOver;
+    }
+
     public void Update()
     {
 #if UNITY_STANDALONE
@@ -31,6 +46,20 @@ public class GameManager : Singleton<GameManager>
             Application.Quit();
         }
 #endif
+
+        if(IsGameOver() && Input.anyKeyDown)
+        {
+            float threshold = 0.2f;
+            if(Time.timeSinceLevelLoad - timeWhenGameWasOver > threshold)
+            {
+                RestartScene();
+            }
+        }
     }
 
+    private void RestartScene()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(sceneName);
+    }
 }
