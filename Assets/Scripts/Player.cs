@@ -53,6 +53,10 @@ public class Player : FloatingCharacter
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             GetHarmed(enemy.damageOnTouchPerSecond * Time.fixedDeltaTime);
         }
+        else if(collision.gameObject.CompareTag("Surface"))
+        {
+            GameManager.Instance.OnPlayerTouchSurface();
+        }
     }
 
     public override void GetHarmed(float damage)
@@ -71,6 +75,15 @@ public class Player : FloatingCharacter
 
         GetHarmed(damagePerFiringBullet); //Firing bullets harm the player
         animator.SetTrigger("Attack");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Pearl"))
+        {
+            GameManager.Instance.OnFindingPearl();
+            collision.gameObject.SetActive(false);
+        }
     }
 
 }
