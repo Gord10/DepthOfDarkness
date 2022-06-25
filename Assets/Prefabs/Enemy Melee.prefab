@@ -51,7 +51,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 9161093231804050106}
   damageIndicatorTime: 0.2
   deadSprite: {fileID: 21300000, guid: 93feecd2b5d1b1043af91661c555ed08, type: 3}
-  extraFallSpeedOnDeath: 1
+  extraFallSpeedOnDeath: 1.2
   damageOnTouchPerSecond: 1
 --- !u!50 &3120310814656094113
 Rigidbody2D:
