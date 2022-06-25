@@ -11,11 +11,20 @@ public class GameManager : Singleton<GameManager>
     private bool isPearlFound = false;
     private bool isGameOver = false;
     private float timeWhenGameWasOver = 0; //Uses Time.timeSinceLevelLoad;
+    private Boss boss;
+
+    private void Awake()
+    {
+        boss = FindObjectOfType<Boss>();
+        boss.gameObject.SetActive(false);
+    }
 
     public void OnFindingPearl()
     {
         isPearlFound = true;
         GameUi.Instance.ShowPearlText();
+        boss.gameObject.SetActive(true);
+        boss.StartFiringAtPlayer();
     }
 
     public void OnPlayerTouchSurface()

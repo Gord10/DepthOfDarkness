@@ -87,8 +87,9 @@ public class Player : FloatingCharacter
     {
         if(collision.CompareTag("Pearl"))
         {
-            GameManager.Instance.OnFindingPearl();
-            collision.gameObject.SetActive(false);
+            Pearl pearl = collision.gameObject.GetComponent<Pearl>();
+            pearl.GetCollected();
+            
         }
     }
 

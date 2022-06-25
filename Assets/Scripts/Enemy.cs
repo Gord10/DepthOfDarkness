@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : FloatingCharacter
 {
     public float damageOnTouchPerSecond = 1f;
-    private Player player;
+    protected Player player;
 
     protected override void Awake()
     {
@@ -13,9 +13,9 @@ public class Enemy : FloatingCharacter
         player = FindObjectOfType<Player>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
-        if(isAlive && spriteRenderer.isVisible)
+        if(isAlive && (spriteRenderer.isVisible || this is Boss))
         {
             //Follow the player
             desiredMovementDirection = player.transform.position - transform.position;
