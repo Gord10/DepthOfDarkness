@@ -9,6 +9,8 @@ public class FloatingCharacter : MonoBehaviour
     public float health = 10;
     public SpriteRenderer spriteRenderer;
     public float damageIndicatorTime = 0.3f;
+    public Sprite deadSprite;
+    public float extraFallSpeedOnDeath = 2f;
 
     protected Rigidbody2D rigidbody;
     protected Vector2 desiredMovementDirection;
@@ -27,7 +29,11 @@ public class FloatingCharacter : MonoBehaviour
         {
             rigidbody.velocity = desiredMovementDirection * movementSpeed; //Character can move to desired movement only if they are alive
         }
-        
+        else
+        {
+            rigidbody.velocity = Vector2.down * extraFallSpeedOnDeath;
+        }
+
         rigidbody.velocity += GameManager.Instance.gravity * Vector2.down; //Apply gravity in water
     }
 
@@ -50,5 +56,6 @@ public class FloatingCharacter : MonoBehaviour
     public virtual void Die()
     {
         isAlive = false;
+        spriteRenderer.sprite = deadSprite;
     }
 }

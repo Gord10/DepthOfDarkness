@@ -46,9 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 913faa8a25d78a741940a6593e0a635d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.5
+  movementSpeed: 0.4
   health: 10
   spriteRenderer: {fileID: 9161093231804050106}
+  damageIndicatorTime: 0.2
+  deadSprite: {fileID: 21300000, guid: 93feecd2b5d1b1043af91661c555ed08, type: 3}
+  extraFallSpeedOnDeath: 1
   damageOnTouchPerSecond: 1
 --- !u!50 &3120310814656094113
 Rigidbody2D:

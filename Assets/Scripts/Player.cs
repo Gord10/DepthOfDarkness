@@ -14,11 +14,13 @@ public class Player : FloatingCharacter
     public float floatingTweenTime = 0.75f;
 
     private Animator animator;
+    private Camera camera;
 
     protected override void Awake()
     {
         base.Awake();
         animator = GetComponentInChildren<Animator>();
+        camera = Camera.main;
     }
 
     // Start is called before the first frame update
@@ -35,11 +37,8 @@ public class Player : FloatingCharacter
         desiredMovementDirection.y = Input.GetAxis("Vertical");
         desiredMovementDirection = Vector2.ClampMagnitude(desiredMovementDirection, 1f);
 
-        if(Input.GetAxisRaw("Horizontal") != 0)
-        {
-            spriteRenderer.transform.rotation = (desiredMovementDirection.x < 0) ? Quaternion.Euler(0, 180, 0) : Quaternion.Euler(0, 0, 0);
-            //spriteRenderer.flipX = desiredMovementDirection.x < 0;
-        }
+        bool willRotateToLeft = camera.ScreenToWorldPoint(Input.mousePosition).x < transform.position.x;
+        spriteRenderer.transform.rotation = (willRotateToLeft) ? Quaternion.Euler(0, 180, 0) : Quaternion.Euler(0, 0, 0);
 
         if(Input.GetMouseButtonDown(0))
         {

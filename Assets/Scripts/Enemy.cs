@@ -47,6 +47,7 @@ public class Enemy : FloatingCharacter
         base.Die();
         rigidbody.constraints = RigidbodyConstraints2D.None;
         gameObject.layer = LayerMask.NameToLayer("EnemyDead");
+        spriteRenderer.gameObject.layer = gameObject.layer;
     }
 
 }
