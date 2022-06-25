@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class FloatingCharacter : MonoBehaviour
 {
     public float movementSpeed = 4;
     public float health = 10;
     public SpriteRenderer spriteRenderer;
+    public float damageIndicatorTime = 0.3f;
 
     protected Rigidbody2D rigidbody;
     protected Vector2 desiredMovementDirection;
@@ -38,6 +40,10 @@ public class FloatingCharacter : MonoBehaviour
             {
                 Die();
             }
+
+            //Tint the color to red
+            spriteRenderer.DOKill();
+            spriteRenderer.DOColor(Color.red, damageIndicatorTime).OnComplete(() => spriteRenderer.DOColor(Color.white, damageIndicatorTime));
         }
     }
 

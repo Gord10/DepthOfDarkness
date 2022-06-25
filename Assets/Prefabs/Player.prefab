@@ -292,6 +292,9 @@ MonoBehaviour:
   movementSpeed: 1
   health: 10
   spriteRenderer: {fileID: 7300857129945128079}
+  damageIndicatorTime: 0.1
   playerBulletPrefab: {fileID: 2646899159059603877, guid: e054758bb29f54041a1965d6737a1270, type: 3}
-  damagePerFiringBullet: 0.06
+  damagePerFiringBullet: 0.1
   bulletPoint: {fileID: 7300857130137789205}
+  floatingTweenY: 0.02
+  floatingTweenTime: 0.75

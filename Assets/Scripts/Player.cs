@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Player : FloatingCharacter
 {
@@ -8,10 +9,22 @@ public class Player : FloatingCharacter
     public float damagePerFiringBullet = 0.1f;
     public Transform bulletPoint;
 
+    [Header("Water Floating Tween Variables")]
+    public float floatingTweenY = 0.02f;
+    public float floatingTweenTime = 0.75f;
+
+    private Animator animator;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        animator = GetComponentInChildren<Animator>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        spriteRenderer.transform.DOLocalMoveY(floatingTweenY, floatingTweenTime).SetLoops(-1, LoopType.Yoyo);
     }
 
     // Update is called once per frame
@@ -24,7 +37,8 @@ public class Player : FloatingCharacter
 
         if(Input.GetAxisRaw("Horizontal") != 0)
         {
-            spriteRenderer.flipX = desiredMovementDirection.x < 0;
+            spriteRenderer.transform.rotation = (desiredMovementDirection.x < 0) ? Quaternion.Euler(0, 180, 0) : Quaternion.Euler(0, 0, 0);
+            //spriteRenderer.flipX = desiredMovementDirection.x < 0;
         }
 
         if(Input.GetMouseButtonDown(0))
@@ -57,6 +71,7 @@ public class Player : FloatingCharacter
         bullet.GetFired(bulletPoint.position, direction);
 
         GetHarmed(damagePerFiringBullet); //Firing bullets harm the player
+        animator.SetTrigger("Attack");
     }
 
 }

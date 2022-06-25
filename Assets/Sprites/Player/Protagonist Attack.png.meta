@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 582225d35889a63469d35b140a71a0f8
+guid: 08e36dd641519c448a878dc6f4d8e492
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Protagonist_0
+      name: Protagonist Attack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 332c8b74364660a4a93cfda61534f8f4
-      internalID: 1125504311
+      spriteID: 235b8fb738e59f14aa16652fd918906a
+      internalID: 1312616142
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Protagonist_0: 1125504311
+      Protagonist Attack_0: 1312616142
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
