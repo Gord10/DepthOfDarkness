@@ -12,11 +12,15 @@ public class GameManager : Singleton<GameManager>
     private bool isGameOver = false;
     private float timeWhenGameWasOver = 0; //Uses Time.timeSinceLevelLoad;
     private Boss boss;
+    private bool didPlayerHarmAnyone = false;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         boss = FindObjectOfType<Boss>();
         boss.gameObject.SetActive(false);
+
+        Music.Instance.PlayGameMusic();
     }
 
     public void OnFindingPearl()
@@ -31,7 +35,14 @@ public class GameManager : Singleton<GameManager>
     {
         if(isPearlFound)
         {
-            print("Game end");
+            if(didPlayerHarmAnyone)
+            {
+                SceneManager.LoadScene("BadEnding");
+            }
+            else
+            {
+                SceneManager.LoadScene("GoodEnding");
+            }
         }
     }
 
@@ -70,5 +81,10 @@ public class GameManager : Singleton<GameManager>
     {
         string sceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void OnPlayerHarmAnyone()
+    {
+        didPlayerHarmAnyone = true;
     }
 }

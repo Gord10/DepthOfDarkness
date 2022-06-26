@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0039689ab5144f488bc724728a5edc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 2.4
   damage: 1
   isPlayerBullet: 0
 --- !u!50 &742193837554309140

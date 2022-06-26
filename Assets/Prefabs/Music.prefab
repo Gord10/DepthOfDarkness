@@ -141,3 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9507a6c01c5df23418f678edc1075150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameMusic: {fileID: 8300000, guid: dc8993c18df79a34d907ee9c75ac71e1, type: 3}
+  goodEndingMusic: {fileID: 8300000, guid: 04e0265aeb70180429a457a8581514aa, type: 3}
+  badEndingMusic: {fileID: 8300000, guid: 96d1faa6f92d8fd44b724e46e6115f59, type: 3}

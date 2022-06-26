@@ -35,6 +35,7 @@ public class Bullet : MonoBehaviour
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             enemy.GetHarmed(damage);
+            GameManager.Instance.OnPlayerHarmAnyone(); //Player has harmed someone
         }
 
         if(collision.gameObject.CompareTag("Player") && !isPlayerBullet)

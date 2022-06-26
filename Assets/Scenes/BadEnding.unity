@@ -277,7 +277,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: Game
-  storyFileName: intro
+  storyFileName: BadEnding
+  storyType: 2
 --- !u!4 &1138036326
 Transform:
   m_ObjectHideFlags: 0
@@ -457,6 +458,18 @@ PrefabInstance:
     - target: {fileID: 3017536276174739494, guid: 389bee6016c4fde4381777052fd7822a, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017536276174739512, guid: 389bee6016c4fde4381777052fd7822a, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.11320752
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017536276174739512, guid: 389bee6016c4fde4381777052fd7822a, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.11320752
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017536276174739512, guid: 389bee6016c4fde4381777052fd7822a, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.11320752
       objectReference: {fileID: 0}
     - target: {fileID: 3017536276174739515, guid: 389bee6016c4fde4381777052fd7822a, type: 3}
       propertyPath: m_RootOrder

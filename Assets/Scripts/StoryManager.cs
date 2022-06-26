@@ -8,6 +8,16 @@ public class StoryManager : MonoBehaviour
 {
     public string nextSceneName;
     public string storyFileName;
+
+    public enum StoryType
+    {
+        INTRO,
+        GOOD_ENDING,
+        BAD_ENDING
+    }
+
+    public StoryType storyType = StoryType.INTRO;
+
     private TextMeshProUGUI uiText;
     private string[] storyTexts;
     private int counter = 0;
@@ -20,6 +30,21 @@ public class StoryManager : MonoBehaviour
         TextAsset textAsset = Resources.Load(storyFileName) as TextAsset;
         storyTexts = textAsset.text.Split("\n");
         uiText.text = storyTexts[0];
+
+        switch(storyType)
+        {
+            case StoryType.INTRO:
+                Music.Instance.PlayGameMusic();
+                break;
+
+            case StoryType.GOOD_ENDING:
+                Music.Instance.PlayGoodEndingMusic();
+                break;
+
+            case StoryType.BAD_ENDING:
+                Music.Instance.PlayBadEndingMusic();
+                break;
+        }
     }
 
     // Start is called before the first frame update
