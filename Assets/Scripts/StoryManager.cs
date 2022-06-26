@@ -30,8 +30,13 @@ public class StoryManager : MonoBehaviour
         TextAsset textAsset = Resources.Load(storyFileName) as TextAsset;
         storyTexts = textAsset.text.Split("\n");
         uiText.text = storyTexts[0];
+    }
 
-        switch(storyType)
+    // Start is called before the first frame update
+    void Start()
+    {
+        //Play music depending on the story type
+        switch (storyType)
         {
             case StoryType.INTRO:
                 Music.Instance.PlayGameMusic();
@@ -45,12 +50,6 @@ public class StoryManager : MonoBehaviour
                 Music.Instance.PlayBadEndingMusic();
                 break;
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame

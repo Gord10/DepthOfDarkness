@@ -7,6 +7,7 @@ public class GameManager : Singleton<GameManager>
 {
     public float gravity = 2f;
     public float deepestPointY = 13f;
+    public GameObject secondWaveEnemies;
 
     private bool isPearlFound = false;
     private bool isGameOver = false;
@@ -20,6 +21,11 @@ public class GameManager : Singleton<GameManager>
         boss = FindObjectOfType<Boss>();
         boss.gameObject.SetActive(false);
 
+        secondWaveEnemies.SetActive(false);
+    }
+
+    private void Start()
+    {
         Music.Instance.PlayGameMusic();
     }
 
@@ -29,6 +35,7 @@ public class GameManager : Singleton<GameManager>
         GameUi.Instance.ShowPearlText();
         boss.gameObject.SetActive(true);
         boss.StartFiringAtPlayer();
+        secondWaveEnemies.SetActive(true);
     }
 
     public void OnPlayerTouchSurface()

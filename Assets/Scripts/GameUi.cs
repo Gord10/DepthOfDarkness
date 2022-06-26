@@ -9,6 +9,9 @@ public class GameUi : Singleton<GameUi>
     public GameObject pearlInfoText;
     public Image pearlImage;
     public GameObject gameOverText;
+    public GameObject fireInstructionText;
+
+    private static bool didPlayerFire = false;
 
     protected override void Awake()
     {
@@ -16,6 +19,11 @@ public class GameUi : Singleton<GameUi>
         pearlInfoText.SetActive(false);
         pearlImage.gameObject.SetActive(false);
         gameOverText.SetActive(false);
+
+        if(didPlayerFire)
+        {
+            fireInstructionText.SetActive(false);
+        }
     }
 
     public void SetHealthBarRatio(float ratio)
@@ -33,5 +41,14 @@ public class GameUi : Singleton<GameUi>
     {
         healthBar.transform.parent.gameObject.SetActive(false);
         gameOverText.SetActive(true);
+    }
+
+    public void Update()
+    {
+        if(!didPlayerFire && Input.GetMouseButton(0) && Time.timeSinceLevelLoad > 0.2f)
+        {
+            fireInstructionText.SetActive(false);
+            didPlayerFire = true;
+        }
     }
 }
